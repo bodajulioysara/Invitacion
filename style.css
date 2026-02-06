@@ -1,0 +1,82 @@
+:root {
+  --navy: #1a3a4a;
+  --gold: #b3925d;
+  --sand-light: #f9f7f2;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--sand-light);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.font-script {
+  font-family: "Alex Brush", cursive;
+}
+.font-cinzel {
+  font-family: "Cinzel", serif;
+}
+
+#welcome-screen {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s ease-out;
+}
+
+#welcome-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hero {
+  height: 80vh;
+  background:
+    linear-gradient(rgba(26, 58, 74, 0.4), rgba(26, 58, 74, 0.2)),
+    url("https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&q=80&w=1500")
+      center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.landscape-wrapper {
+  margin-top: -60px;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.landscape-card {
+  background: white;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: rotate(1deg);
+  max-width: 340px;
+}
+
+.timer-unit {
+  background: white;
+  padding: 12px;
+  border-radius: 4px;
+  min-width: 80px;
+  text-align: center;
+  border: 1px solid rgba(179, 146, 93, 0.2);
+  font-size: 24px;
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+.section-padding {
+  padding: 60px 24px;
+}

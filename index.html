@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boda Julio & Sara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #1a3a4a;
+        --gold: #b3925d;
+        --sand: #f9f7f2;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--sand);
+        color: #4a4a4a;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      .font-script {
+        font-family: "Alex Brush", cursive;
+      }
+      .font-cinzel {
+        font-family: "Cinzel", serif;
+      }
+
+      #welcome-screen {
+        position: fixed;
+        inset: 0;
+        background: white;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.8s ease;
+      }
+
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(rgba(26, 58, 74, 0.4), rgba(26, 58, 74, 0.2)),
+          url("https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&q=80&w=1500")
+            center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      .landscape-card {
+        background: white;
+        padding: 10px 10px 30px 10px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transform: rotate(1deg);
+        max-width: 340px;
+        margin: -80px auto 0;
+        position: relative;
+        z-index: 20;
+      }
+
+      .timer-unit {
+        background: white;
+        padding: 15px;
+        border-radius: 4px;
+        min-width: 80px;
+        border: 1px solid rgba(179, 146, 93, 0.3);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+      }
+
+      .bank-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        max-width: 320px;
+        margin: 0 auto;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        color: #333;
+      }
+      footer {
+        background: white;
+        padding: 50px 20px;
+        text-align: center;
+        border-top: 1px solid #eee;
+      }
+    </style>
+  </head>
+  <body class="overflow-hidden">
+    <div id="welcome-screen">
+      <div class="animate-pulse">
+        <span class="text-4xl mb-4 block">🐚</span>
+        <p
+          class="font-cinzel text-[10px] tracking-[5px] mb-2 text-stone-400 uppercase"
+        >
+          Nuestra Boda
+        </p>
+        <h2 class="font-script text-7xl text-stone-800 mb-10">Julio & Sara</h2>
+        <button
+          onclick="abrirInvitacion()"
+          class="border border-stone-800 px-10 py-4 text-[10px] uppercase tracking-[4px] hover:bg-stone-800 hover:text-white transition-all"
+        >
+          Abrir Invitación
+        </button>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div>
+        <p class="font-cinzel text-[11px] tracking-[7px] mb-4 uppercase">
+          ¡Nos casamos!
+        </p>
+        <h1 class="font-script text-8xl md:text-9xl mb-3">Julio & Sara</h1>
+        <p class="font-cinzel text-base tracking-[5px]">19 DE ABRIL, 2026</p>
+      </div>
+    </header>
+
+    <div class="landscape-card">
+      <img
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+        class="w-full"
+      />
+      <p class="font-script text-center text-2xl mt-5 text-stone-600">
+        Nuestro Amor frente al Mar
+      </p>
+    </div>
+
+    <section class="py-20 text-center px-6 max-w-xl mx-auto">
+      <h2 class="font-cinzel text-lg italic text-stone-700 leading-relaxed">
+        "Milagroso, abres camino, cumples promesas, luz en tinieblas... ese es
+        nuestro Dios."
+      </h2>
+      <div class="w-12 h-px bg-[#b3925d] mx-auto my-8"></div>
+      <p class="text-sm text-stone-500 font-light leading-loose">
+        Con la bendición del Creador y el murmullo de las olas, los invitamos a
+        compartir nuestra unión en Playa Parguito.
+      </p>
+    </section>
+
+    <section class="py-12 bg-white/50 border-y border-stone-100 text-center">
+      <div class="flex justify-center gap-4 px-4">
+        <div class="timer-unit">
+          <span id="dias" class="block text-3xl font-light text-stone-800"
+            >00</span
+          >
+          <span class="text-[10px] uppercase tracking-widest text-stone-400"
+            >Días</span
+          >
+        </div>
+        <div class="timer-unit">
+          <span id="horas" class="block text-3xl font-light text-stone-800"
+            >00</span
+          >
+          <span class="text-[10px] uppercase tracking-widest text-stone-400"
+            >Hrs</span
+          >
+        </div>
+        <div class="timer-unit">
+          <span id="minutos" class="block text-3xl font-light text-stone-800"
+            >00</span
+          >
+          <span class="text-[10px] uppercase tracking-widest text-stone-400"
+            >Min</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 text-center px-6">
+      <span class="text-4xl mb-6 block">🏝️</span>
+      <h3
+        class="font-cinzel text-sm tracking-[5px] uppercase mb-10 text-stone-500"
+      >
+        La Ceremonia
+      </h3>
+      <div class="max-w-sm mx-auto bg-white p-10 border border-stone-100 mb-10">
+        <p class="font-bold text-stone-800 uppercase tracking-widest">
+          Playa Parguito
+        </p>
+        <p class="text-xs text-stone-400 italic mb-6">Isla de Margarita</p>
+        <div class="w-8 h-px bg-stone-100 mx-auto my-6"></div>
+        <p class="text-sm text-stone-600 uppercase">Domingo, 19 de Abril</p>
+        <p class="text-2xl font-medium text-stone-800 mt-2">3:00 PM</p>
+      </div>
+      <a
+        href="https://maps.app.goo.gl/uEg16i4afYzj7q9e8"
+        target="_blank"
+        class="border border-stone-800 px-8 py-3 text-[10px] uppercase tracking-widest inline-block"
+        >Ver Ubicación</a
+      >
+    </section>
+
+    <section class="py-20 bg-stone-900 text-white text-center px-6">
+      <h3
+        class="font-cinzel text-sm tracking-[5px] uppercase mb-8 text-[#b3925d]"
+      >
+        Lluvia de Sobres
+      </h3>
+      <div class="bank-card">
+        <div class="mb-4 border-b pb-2">
+          <p class="text-[9px] text-stone-400 uppercase">Banco</p>
+          <p class="font-semibold text-sm">Banco de Venezuela</p>
+        </div>
+        <div class="mb-4 border-b pb-2">
+          <p class="text-[9px] text-stone-400 uppercase">Cédula</p>
+          <p class="font-semibold text-sm">28.468.165</p>
+        </div>
+        <div>
+          <p class="text-[9px] text-stone-400 uppercase">Pago Móvil</p>
+          <p class="font-semibold text-sm">0426-8873751</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="font-script text-5xl text-stone-800 mb-2">Julio & Sara</div>
+      <div class="font-cinzel text-[8px] tracking-[6px] text-stone-400">
+        #BODAJULIOYSARA
+      </div>
+    </footer>
+
+    <script>
+      // Función principal de apertura
+      function abrirInvitacion() {
+        window.scrollTo(0, 0);
+        const welcome = document.getElementById("welcome-screen");
+        welcome.style.opacity = "0";
+        setTimeout(() => {
+          welcome.style.display = "none";
+          document.body.classList.remove("overflow-hidden");
+
+          // DISPARAR LA ANIMACIÓN AUTOMÁTICAMENTE 1 SEGUNDO DESPUÉS
+          setTimeout(iniciarConteoAnimado, 1000);
+        }, 800);
+      }
+
+      const fechaObjetivo = new Date("April 19, 2026 15:00:00").getTime();
+
+      function iniciarConteoAnimado() {
+        const ahora = new Date().getTime();
+        const diff = fechaObjetivo - ahora;
+
+        const finalDias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const finalHoras = Math.floor(
+          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const finalMins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        // Animamos los 3 al mismo tiempo
+        animarNumero("dias", finalDias);
+        animarNumero("horas", finalHoras);
+        animarNumero("minutos", finalMins);
+      }
+
+      function animarNumero(id, valorFinal) {
+        let valorActual = 0;
+        const elemento = document.getElementById(id);
+        const duracion = 2000; // 2 segundos
+        const pasos = 60;
+        const incremento = valorFinal / pasos;
+        const intervaloTiempo = duracion / pasos;
+
+        const timer = setInterval(() => {
+          valorActual += incremento;
+          if (valorActual >= valorFinal) {
+            elemento.innerText = valorFinal.toString().padStart(2, "0");
+            clearInterval(timer);
+          } else {
+            elemento.innerText = Math.floor(valorActual)
+              .toString()
+              .padStart(2, "0");
+          }
+        }, intervaloTiempo);
+      }
+    </script>
+  </body>
+</html>
