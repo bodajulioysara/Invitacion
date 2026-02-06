@@ -98,11 +98,13 @@
       <div class="animate-pulse px-6">
         <span class="text-4xl mb-4 block">🐚</span>
         <p
-          class="font-cinzel text-[10px] tracking-[5px] mb-2 text-stone-400 uppercase"
+          class="font-cinzel text-[10px] tracking-[5px] mb-4 text-stone-400 uppercase"
         >
           Nuestra Boda
         </p>
-        <h2 class="font-script text-7xl text-stone-800 mb-10">Julio & Sara</h2>
+        <h2 class="font-script text-5xl text-stone-800 mb-12 whitespace-nowrap">
+          Julio & Sara
+        </h2>
         <button
           onclick="abrirInvitacion()"
           class="border border-stone-800 px-10 py-4 text-[10px] uppercase tracking-[4px] hover:bg-stone-800 hover:text-white transition-all"
@@ -113,12 +115,14 @@
     </div>
 
     <header class="hero">
-      <div>
-        <p class="font-cinzel text-[11px] tracking-[7px] mb-4 uppercase">
+      <div class="px-4">
+        <p class="font-cinzel text-[11px] tracking-[7px] mb-6 uppercase">
           ¡Nos casamos!
         </p>
-        <h1 class="font-script text-8xl md:text-9xl mb-3">Julio & Sara</h1>
-        <p class="font-cinzel text-base tracking-[5px]">19 DE ABRIL, 2026</p>
+        <h1 class="font-script text-6xl md:text-8xl mb-6 whitespace-nowrap">
+          Julio & Sara
+        </h1>
+        <p class="font-cinzel text-sm tracking-[5px]">19 DE ABRIL, 2026</p>
       </div>
     </header>
 
@@ -192,7 +196,7 @@
       <a
         href="https://maps.app.goo.gl/be3vMz7tgqEVrPUr8"
         target="_blank"
-        class="border border-stone-800 px-10 py-4 text-[10px] uppercase tracking-[4px] hover:bg-stone-800 hover:text-white transition-all"
+        class="border border-stone-800 px-10 py-4 text-[10px] uppercase tracking-[4px] rounded-md hover:bg-stone-800 hover:text-white transition-all duration-500 inline-block"
       >
         Ver Ubicación
       </a>
@@ -207,7 +211,6 @@
       <p class="text-stone-400 text-xs italic mb-10 font-light">
         Si deseas tener un detalle con nosotros:
       </p>
-
       <div class="bank-card">
         <div class="mb-4 border-b pb-2">
           <p class="text-[9px] text-stone-400 uppercase">Banco</p>
@@ -239,7 +242,6 @@
         setTimeout(() => {
           welcome.style.display = "none";
           document.body.classList.remove("overflow-hidden");
-          // Inicia la animación solita 1 segundo después de abrir
           setTimeout(iniciarConteoAnimado, 1000);
         }, 800);
       }
@@ -249,13 +251,11 @@
       function iniciarConteoAnimado() {
         const ahora = new Date().getTime();
         const diff = fechaObjetivo - ahora;
-
         const finalDias = Math.floor(diff / (1000 * 60 * 60 * 24));
         const finalHoras = Math.floor(
           (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
         );
         const finalMins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
         animarNumero("dias", finalDias);
         animarNumero("horas", finalHoras);
         animarNumero("minutos", finalMins);
@@ -266,7 +266,6 @@
         const elemento = document.getElementById(id);
         const pasos = 50;
         const incremento = valorFinal / pasos;
-
         const timer = setInterval(() => {
           valorActual += incremento;
           if (valorActual >= valorFinal) {
