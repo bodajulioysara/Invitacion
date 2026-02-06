@@ -95,7 +95,7 @@
   </head>
   <body class="overflow-hidden">
     <div id="welcome-screen">
-      <div class="animate-pulse">
+      <div class="animate-pulse px-6">
         <span class="text-4xl mb-4 block">🐚</span>
         <p
           class="font-cinzel text-[10px] tracking-[5px] mb-2 text-stone-400 uppercase"
@@ -139,8 +139,8 @@
       </h2>
       <div class="w-12 h-px bg-[#b3925d] mx-auto my-8"></div>
       <p class="text-sm text-stone-500 font-light leading-loose">
-        Con la bendición del Creador y el murmullo de las olas, los invitamos a
-        compartir nuestra unión en Playa Parguito.
+        Con la bendición del Creador y el murmullo de las olas como testigo, los
+        invitamos a nuestra unión.
       </p>
     </section>
 
@@ -190,19 +190,24 @@
         <p class="text-2xl font-medium text-stone-800 mt-2">3:00 PM</p>
       </div>
       <a
-        href="https://maps.app.goo.gl/uEg16i4afYzj7q9e8"
+        href="https://maps.app.goo.gl/be3vMz7tgqEVrPUr8"
         target="_blank"
-        class="border border-stone-800 px-8 py-3 text-[10px] uppercase tracking-widest inline-block"
-        >Ver Ubicación</a
+        class="border border-stone-800 px-10 py-4 text-[10px] uppercase tracking-[4px] hover:bg-stone-800 hover:text-white transition-all"
       >
+        Ver Ubicación
+      </a>
     </section>
 
     <section class="py-20 bg-stone-900 text-white text-center px-6">
       <h3
-        class="font-cinzel text-sm tracking-[5px] uppercase mb-8 text-[#b3925d]"
+        class="font-cinzel text-sm tracking-[5px] uppercase mb-2 text-[#b3925d]"
       >
         Lluvia de Sobres
       </h3>
+      <p class="text-stone-400 text-xs italic mb-10 font-light">
+        Si deseas tener un detalle con nosotros:
+      </p>
+
       <div class="bank-card">
         <div class="mb-4 border-b pb-2">
           <p class="text-[9px] text-stone-400 uppercase">Banco</p>
@@ -227,7 +232,6 @@
     </footer>
 
     <script>
-      // Función principal de apertura
       function abrirInvitacion() {
         window.scrollTo(0, 0);
         const welcome = document.getElementById("welcome-screen");
@@ -235,8 +239,7 @@
         setTimeout(() => {
           welcome.style.display = "none";
           document.body.classList.remove("overflow-hidden");
-
-          // DISPARAR LA ANIMACIÓN AUTOMÁTICAMENTE 1 SEGUNDO DESPUÉS
+          // Inicia la animación solita 1 segundo después de abrir
           setTimeout(iniciarConteoAnimado, 1000);
         }, 800);
       }
@@ -253,7 +256,6 @@
         );
         const finalMins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-        // Animamos los 3 al mismo tiempo
         animarNumero("dias", finalDias);
         animarNumero("horas", finalHoras);
         animarNumero("minutos", finalMins);
@@ -262,10 +264,8 @@
       function animarNumero(id, valorFinal) {
         let valorActual = 0;
         const elemento = document.getElementById(id);
-        const duracion = 2000; // 2 segundos
-        const pasos = 60;
+        const pasos = 50;
         const incremento = valorFinal / pasos;
-        const intervaloTiempo = duracion / pasos;
 
         const timer = setInterval(() => {
           valorActual += incremento;
@@ -277,7 +277,7 @@
               .toString()
               .padStart(2, "0");
           }
-        }, intervaloTiempo);
+        }, 30);
       }
     </script>
   </body>
